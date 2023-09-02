@@ -1,1 +1,1 @@
-# llm-lab
+# llm-integration
