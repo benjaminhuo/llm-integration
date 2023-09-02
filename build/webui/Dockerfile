@@ -1,5 +1,0 @@
-FROM python:3.11.5-slim
-RUN set -eux; \
-	pip3 install "fschat[webui]" accelerate transformers
-
-ENTRYPOINT ["python3","-m","fastchat.serve.gradio_web_server"]
