@@ -1,4 +1,4 @@
-name: Building LLM controller 
+name: Building FastChat controller 
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     tags:
       - 'v*'
     paths:
-      - '.github/workflows/build-llm-controller.yaml'
-      - 'dockerfiles/llm-controller'
+      - '.github/workflows/build-fastchat-controller.yaml'
+      - 'fastchat/dockerfiles/fastchat-controller'
 
 jobs:
   build:
@@ -46,6 +46,6 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           provenance: false
-          file: ./dockerfiles/llm-controller
+          file: ./fastchat/dockerfiles/fastchat-controller
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/llm-controller:${{ steps.tag.outputs.contents }}
+          tags: ghcr.io/${{ github.repository_owner }}/fastchat-controller:${{ steps.tag.outputs.contents }}

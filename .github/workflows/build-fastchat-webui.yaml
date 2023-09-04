@@ -1,4 +1,4 @@
-name: Building LLM worker 
+name: Building FastChat webui 
 
 on:
   push:
@@ -7,11 +7,11 @@ on:
     tags:
       - 'v*'
     paths:
-      - '.github/workflows/build-llm-worker.yaml'
-      - 'dockerfiles/llm-worker'
+      - '.github/workflows/build-fastchat-webui.yaml'
+      - 'fastchat/dockerfiles/fastchat-webui'
 
 env:
-  REGISTRY_IMAGE: ghcr.io/${{ github.repository_owner }}/llm-worker
+  REGISTRY_IMAGE: ghcr.io/${{ github.repository_owner }}/fastchat-webui
 
 jobs:
   build:
@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./dockerfiles/llm-worker
+          file: ./fastchat/dockerfiles/fastchat-webui
           provenance: false
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}

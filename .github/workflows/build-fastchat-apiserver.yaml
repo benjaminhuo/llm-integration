@@ -1,4 +1,4 @@
-name: Building LLM apiserver 
+name: Building FastChat apiserver 
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     tags:
       - 'v*'
     paths:
-      - '.github/workflows/build-llm-apiserver.yaml'
-      - 'dockerfiles/llm-apiserver'
+      - '.github/workflows/build-fastchat-apiserver.yaml'
+      - 'fastchat/dockerfiles/fastchat-apiserver'
 
 jobs:
   build:
@@ -46,6 +46,6 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           provenance: false
-          file: ./dockerfiles/llm-apiserver
+          file: ./fastchat/dockerfiles/fastchat-apiserver
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/llm-apiserver:${{ steps.tag.outputs.contents }}
+          tags: ghcr.io/${{ github.repository_owner }}/fastchat-apiserver:${{ steps.tag.outputs.contents }}
